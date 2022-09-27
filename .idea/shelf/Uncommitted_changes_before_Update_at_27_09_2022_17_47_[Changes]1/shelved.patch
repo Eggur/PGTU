@@ -1,0 +1,435 @@
+Index: week2/pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/pom.xml b/week2/pom.xml
+new file mode 100644
+--- /dev/null	
++++ b/week2/pom.xml	
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++
++    <groupId>org.example</groupId>
++    <artifactId>week2</artifactId>
++    <version>1.0-SNAPSHOT</version>
++
++    <properties>
++        <maven.compiler.source>11</maven.compiler.source>
++        <maven.compiler.target>11</maven.compiler.target>
++        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
++    </properties>
++
++</project>
+\ No newline at end of file
+Index: week2/src/main/java/exercise3/MaxEquals.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise3/MaxEquals.java b/week2/src/main/java/exercise3/MaxEquals.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise3/MaxEquals.java	
+@@ -0,0 +1,38 @@
++package exercise3;
++
++import java.util.Arrays;
++
++public class MaxEquals {
++    public static void main(String[] args) {
++
++        int[] arr = {2,5,8,555,654,321,654};
++        findMaxEquals(arr);
++    }
++    private static void findMaxEquals(int[] arr){
++        int maxValue = arr[0];
++        int equalsValue = arr[0];
++        /*
++          т.к. в массиве должен быть как минимум один элемент
++          значение equalsAmount должно быть равно 1
++        */
++        int equalsAmount = 1;
++        for (int i = 0; i < arr.length; i++){
++            if (arr[i] > maxValue){
++                maxValue = arr[i];
++            }
++            for (int x = i + 1; x < arr.length; x++){
++                if (arr[i] == arr[x]){
++                    arr[x] = equalsAmount;
++                    equalsAmount++;
++                }
++            }
++        }
++        System.out.println(maxValue + " " + equalsAmount);
++        /*
++           описание другого варианта с небольшими поправками:
++           значение equalsAmount остается 0 и при выводе в консоль будет другой текст
++           sout(maxValue + " количество найденных элементов равных maxValue: " + equalsAmount);
++         */
++    }
++
++    }
+Index: week2/src/main/java/exercise2/PrimeNumbers.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise2/PrimeNumbers.java b/week2/src/main/java/exercise2/PrimeNumbers.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise2/PrimeNumbers.java	
+@@ -0,0 +1,30 @@
++package exercise2;
++
++import java.util.ArrayList;
++import java.util.Arrays;
++import java.util.List;
++
++public class PrimeNumbers {
++    public static void main(String[] args) {
++        System.out.println(primeNumbers(35));
++    }
++
++    private static List primeNumbers(int n) {
++        boolean[] primes = new boolean[n + 1];
++        Arrays.fill(primes, true);
++
++        for (int i = 2; i * i < n; i++) {
++            if (primes[i]) {
++                for (int j = i * i; j <= n; j += i)
++                    primes[j] = false;
++            }
++        }
++
++        List primeNumbers = new ArrayList<>();
++        for (int i = 2; i <= n; i++) {
++            if (primes[i])
++                primeNumbers.add(i);
++        }
++        return primeNumbers;
++    }
++}
+Index: week2/src/main/java/exercise3/MergeSort.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise3/MergeSort.java b/week2/src/main/java/exercise3/MergeSort.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise3/MergeSort.java	
+@@ -0,0 +1,73 @@
++package exercise3;
++
++public class MergeSort {
++    public static void main(String[] params) {
++        int[] array = new int[] {15,78,89,9,12,12546,8,879,16,54,1};
++        System.out.println(arrayToString(array));
++        array = mergeSort(array);
++        System.out.println(arrayToString(array));
++    }
++
++    public static int[] mergeSort(int[] array) {
++        int[] tmp;
++        int[] currentSrc = array;
++        int[] currentDest = new int[array.length];
++
++        int size = 1;
++        while (size < array.length) {
++            for (int i = 0; i < array.length; i += 2 * size) {
++                merge(currentSrc, i, currentSrc, i + size, currentDest, i, size);
++            }
++
++            tmp = currentSrc;
++            currentSrc = currentDest;
++            currentDest = tmp;
++
++            size = size * 2;
++
++            System.out.println(arrayToString(currentSrc));
++        }
++        return currentSrc;
++    }
++
++    private static void merge(int[] src1, int src1Start, int[] src2, int src2Start, int[] dest,
++                              int destStart, int size) {
++        int index1 = src1Start;
++        int index2 = src2Start;
++
++        int src1End = Math.min(src1Start + size, src1.length);
++        int src2End = Math.min(src2Start + size, src2.length);
++
++        if (src1Start + size > src1.length) {
++            for (int i = src1Start; i < src1End; i++) {
++                dest[i] = src1[i];
++            }
++            return;
++        }
++
++        int iterationCount = src1End - src1Start + src2End - src2Start;
++
++        for (int i = destStart; i < destStart + iterationCount; i++) {
++            if (index1 < src1End && (index2 >= src2End || src1[index1] < src2[index2])) {
++                dest[i] = src1[index1];
++                index1++;
++            } else {
++                dest[i] = src2[index2];
++                index2++;
++            }
++        }
++    }
++
++    private static String arrayToString(int[] array) {
++        StringBuilder sb = new StringBuilder();
++        sb.append("[");
++        for (int i = 0; i < array.length; i++) {
++            if (i > 0) {
++                sb.append(", ");
++            }
++            sb.append(array[i]);
++        }
++        sb.append("]");
++        return sb.toString();
++    }
++}
+Index: week2/src/main/java/exercise3/Median.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise3/Median.java b/week2/src/main/java/exercise3/Median.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise3/Median.java	
+@@ -0,0 +1,16 @@
++package exercise3;
++
++public class Median {
++    public static void main(String[] args) {
++
++        int[] arr = {2,43,534,645,64,142,1};
++        int median;
++        if (arr.length % 2 == 0)
++            median = (arr[arr.length/2] + arr[arr.length/2 - 1])/2;
++        else
++            median = arr[arr.length/2];
++        System.out.println(median);
++
++    }
++
++}
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/encodings.xml	
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/week2/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/week2/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: week2/src/main/java/exercise1/YourAge.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise1/YourAge.java b/week2/src/main/java/exercise1/YourAge.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise1/YourAge.java	
+@@ -0,0 +1,24 @@
++package exercise1;
++
++
++import java.util.Scanner;
++
++public class YourAge {
++    public static void main(String[] args) {
++        System.out.println("Enter your age: ");
++        Scanner scanner = new Scanner(System.in);
++        int userAge = scanner.nextInt();
++
++        int ageRemainder = userAge%10;
++
++        if (ageRemainder == 1 && userAge!=11){
++            System.out.println(userAge + " год");
++        } else if (ageRemainder > 1 && ageRemainder < 5 &&
++                (userAge < 10 || userAge > 20)) {
++            System.out.println(userAge + " года");
++        } else {
++            System.out.println(userAge + " лет");
++        }
++
++    }
++}
+Index: week2/src/main/java/exercise1/Badminton.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise1/Badminton.java b/week2/src/main/java/exercise1/Badminton.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise1/Badminton.java	
+@@ -0,0 +1,24 @@
++package exercise1;
++
++public class Badminton {
++    public static void main(String[] args) {
++        // идеальный вариант:
++        // тепло,
++        // ясно,
++        // ветра нет,
++        // низкая влажность
++        String temperature = "warm";
++        String precipitation = "clear";
++        String wind = "no";
++        String humidity = "low";
++
++        if (temperature == "warm" && precipitation == "clear" &&
++                wind == "no" && humidity == "low"){
++            System.out.println("Yes");
++        } else {
++            System.out.println("No");
++        }
++    }
++
++
++}
+Index: week2/src/main/java/exercise1/DaysAmount.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise1/DaysAmount.java b/week2/src/main/java/exercise1/DaysAmount.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise1/DaysAmount.java	
+@@ -0,0 +1,54 @@
++package exercise1;
++
++public class DaysAmount {
++    public static void main(String[] args) {
++        String date = "February";
++        int year = 2012;
++        int yearRemainder = year%4;
++
++        switch (date){
++            case "January":
++                System.out.println("in " + date + " 31 days");
++                break;
++            case "February":
++                if (yearRemainder == 0){
++                    System.out.println("in " + date + " 29 days");
++                } else {
++                    System.out.println("in " + date + " 28 days");
++                }
++                break;
++            case "March":
++                System.out.println("in " + date + " 31 days");
++                break;
++            case "April":
++                System.out.println("in " + date + " 30 days");
++                break;
++            case "May":
++                System.out.println("in " + date + " 31 days");
++                break;
++            case "June":
++                System.out.println("in " + date + " 30 days");
++                break;
++            case "July":
++                System.out.println("in " + date + " 31 days");
++                break;
++            case "August":
++                System.out.println("in " + date + " 31 days");
++                break;
++            case "September":
++                System.out.println("in " + date + " 30 days");
++                break;
++            case "October":
++                System.out.println("in " + date + " 31 days");
++                break;
++            case "November":
++                System.out.println("in " + date + " 30 days");
++                break;
++            case "December":
++                System.out.println("in " + date + " 31 days");
++                break;
++        }
++    }
++
++
++}
+Index: week2/src/main/java/exercise2/Sqrt.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise2/Sqrt.java b/week2/src/main/java/exercise2/Sqrt.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise2/Sqrt.java	
+@@ -0,0 +1,18 @@
++package exercise2;
++
++public class Sqrt {
++    public static void main(String[] args) {
++        sqrt(45);
++    }
++// т.к. здесь вычисление формулы детальное обозначение переменных не обязательна
++// если не так, то простите :/
++    static void sqrt(int x){
++        double z = x;
++        int i = 0;
++        while ((z * z > x)&&(i < 200)){
++            z = (z + x / z) /2;
++            i++;
++        }
++        System.out.println(z);
++    }
++}
+Index: week2/src/main/java/exercise2/Pyramid.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/week2/src/main/java/exercise2/Pyramid.java b/week2/src/main/java/exercise2/Pyramid.java
+new file mode 100644
+--- /dev/null	
++++ b/week2/src/main/java/exercise2/Pyramid.java	
+@@ -0,0 +1,22 @@
++package exercise2;
++
++import java.util.Scanner;
++
++public class Pyramid {
++    public static void main(String[] args) {
++        System.out.println("Pyramid height: ");
++        Scanner scanner = new Scanner(System.in);
++        int height = scanner.nextInt();
++
++        for (int i = 0; i < height; i++){
++            for (int k = 0; k < height - i; k++){
++                System.out.println(" ");
++            } for (int x = 1; x <= i*2+1; x++){
++                System.out.println("#");
++            }
++            System.out.println();
++        }
++
++
++    }
++}

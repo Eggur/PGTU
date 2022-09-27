@@ -1,0 +1,26 @@
+Index: .idea/compiler.xml
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	
++++ b/.idea/compiler.xml	
+@@ -7,6 +7,7 @@
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+         <module name="Week1" />
++        <module name="week2" />
+       </profile>
+     </annotationProcessing>
+   </component>
+Index: .idea/misc.xml
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -5,6 +5,7 @@
+     <option name="originalFiles">
+       <list>
+         <option value="$PROJECT_DIR$/Week1/pom.xml" />
++        <option value="$PROJECT_DIR$/week2/pom.xml" />
+       </list>
+     </option>
+   </component>
