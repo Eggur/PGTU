@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31cd4756-484a-46e5-be25-7b2577bfcee9" name="Changes" comment="добавлена первая домашняя работа">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise1/Badminton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise1/DaysAmount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise1/YourAge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise2/PrimeNumbers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise2/Pyramid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise2/Sqrt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise3/MaxEquals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise3/Median.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week2/src/main/java/exercise3/MergeSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/week1/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week1/src/main/java/Exercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/Exercise1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week1/src/main/java/Exercise2.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/Exercise2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week1/src/main/java/Exercise3.java" beforeDir="false" afterPath="$PROJECT_DIR$/week1/src/main/java/Exercise3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week1/target/classes/Exercise1.class" beforeDir="false" afterPath="$PROJECT_DIR$/week1/target/classes/Exercise1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week1/target/classes/Exercise2.class" beforeDir="false" afterPath="$PROJECT_DIR$/week1/target/classes/Exercise2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week1/target/classes/Exercise3.class" beforeDir="false" afterPath="$PROJECT_DIR$/week1/target/classes/Exercise3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/src/main/java/exercise1/Badminton.java" beforeDir="false" afterPath="$PROJECT_DIR$/week2/src/main/java/exercise1/Badminton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/src/main/java/exercise2/PrimeNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/week2/src/main/java/exercise2/PrimeNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/src/main/java/exercise2/Pyramid.java" beforeDir="false" afterPath="$PROJECT_DIR$/week2/src/main/java/exercise2/Pyramid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/src/main/java/exercise2/Sqrt.java" beforeDir="false" afterPath="$PROJECT_DIR$/week2/src/main/java/exercise2/Sqrt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week2/src/main/java/exercise3/MaxEquals.java" beforeDir="false" afterPath="$PROJECT_DIR$/week2/src/main/java/exercise3/MaxEquals.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +57,20 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MergeSort">
+  <component name="RunManager" selected="Application.MaxEquals">
+    <configuration name="Badminton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercise1.Badminton" />
+      <module name="week2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exercise1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MaxEquals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="exercise3.MaxEquals" />
       <module name="week2" />
@@ -85,25 +84,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Median" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercise3.Median" />
+    <configuration name="PrimeNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exercise2.PrimeNumbers" />
       <module name="week2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="exercise3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MergeSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exercise3.MergeSort" />
-      <module name="week2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="exercise3.*" />
+          <option name="PATTERN" value="exercise2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,10 +125,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MergeSort" />
-        <item itemvalue="Application.Median" />
         <item itemvalue="Application.MaxEquals" />
+        <item itemvalue="Application.PrimeNumbers" />
         <item itemvalue="Application.Sqrt" />
+        <item itemvalue="Application.Badminton" />
         <item itemvalue="Application.Pyramid" />
       </list>
     </recent_temporary>
@@ -165,6 +151,11 @@
       <workItem from="1664016598291" duration="1947000" />
       <workItem from="1664115546709" duration="22000" />
       <workItem from="1664271584626" duration="14313000" />
+      <workItem from="1664290875806" duration="9000" />
+      <workItem from="1664290906735" duration="775000" />
+      <workItem from="1664367197497" duration="12000" />
+      <workItem from="1664483766292" duration="936000" />
+      <workItem from="1664791935122" duration="3501000" />
     </task>
     <task id="LOCAL-00001" summary="добавлена первая домашняя работа">
       <created>1663681973842</created>

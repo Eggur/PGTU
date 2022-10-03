@@ -3,28 +3,32 @@ package exercise2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class PrimeNumbers {
     public static void main(String[] args) {
-        System.out.println(primeNumbers(35));
-    }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of numbers: ");
+        int number = scanner.nextInt();
 
-    private static List primeNumbers(int n) {
-        boolean[] primes = new boolean[n + 1];
-        Arrays.fill(primes, true);
+        int[] prime = new int[number + 1];
+        for (int i = 2; i <= number; i++){
+            prime[i] = i;
+        }
 
-        for (int i = 2; i * i < n; i++) {
-            if (primes[i]) {
-                for (int j = i * i; j <= n; j += i)
-                    primes[j] = false;
+        for (int i = 2; i * i <= number; i++) {
+            for (int j = i * i; j <= number; j += i) {
+                prime[j] = 0;
             }
         }
 
-        List primeNumbers = new ArrayList<>();
-        for (int i = 2; i <= n; i++) {
-            if (primes[i])
-                primeNumbers.add(i);
+        System.out.println("Prime numbers: ");
+
+        for(int i = 2; i <= number; i ++) {
+            if(prime[i] != 0) {
+                System.out.print(prime[i] + " ");
+            }
         }
-        return primeNumbers;
     }
+
 }
