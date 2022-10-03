@@ -1,14 +1,24 @@
 package exercise3;
 
+import java.util.Scanner;
+
 public class Median {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("enter a set of numbers: ");
+        String[] inputArray = input.nextLine().split(" ");
 
-        int[] arr = {2,43,534,645,64,142,1};
-        int median;
-        if (arr.length % 2 == 0)
-            median = (arr[arr.length/2] + arr[arr.length/2 - 1])/2;
+        double[] nums = new double[inputArray.length];
+        int arrLenght = nums.length;
+
+        for (int i = 0; i < inputArray.length; i++) {
+            nums[i] = Double.valueOf(inputArray[i]);
+        }
+        double median;
+        if (arrLenght % 2 == 0)
+            median = (nums[arrLenght/2] + nums[arrLenght/2 - 1])/2;
         else
-            median = arr[arr.length/2];
+            median = nums[arrLenght/2];
         System.out.println(median);
 
     }
